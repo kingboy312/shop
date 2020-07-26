@@ -13,12 +13,13 @@ class SubCat(models.Model):
     def __str__(self):
         return self.cat_name
 class Goods(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
-    original_price = models.DecimalField(max_digits=2,max_length=10)
-    current_price  = models.DecimalField(max_digits=2,max_length=10)
+    original_price = models.IntegerField()
+    current_price  = models.IntegerField()
     picture = models.CharField(max_length=255)
     introduction = models.CharField(max_length=255)
-    views_count = models.AutoField(verbose_name=0)
+    views_count = models.IntegerField(verbose_name=0)
     is_sale  = models.BooleanField()
     is_new = models.BooleanField()
     supercat_id = models.ForeignKey(SuperCat,on_delete=models.CASCADE)
@@ -29,7 +30,7 @@ class Goods(models.Model):
 class Cart(models.Model):
     subcat_id = models.ForeignKey(Goods,on_delete=models.CASCADE)
     user_id = models.ForeignKey(User,on_delete=models.CASCADE)
-    number = models.AutoField(verbose_name=0)
+    number = models.IntegerField(verbose_name=0)
     addtime = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.number
@@ -42,3 +43,7 @@ class Orders(models.Model):
     addtime = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.recevie_name
+class OrdersDetail(models.Model):
+    goods_id = models.ForeignKey(Goods,on_delete=models.CASCADE)
+    order_id = models.ForeignKey(Orders,on_delete=models.CASCADE)
+    number = models.IntegerField(verbose_name=0)
