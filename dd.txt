@@ -11,5 +11,6 @@ F:\矜童编程\Python\xxratard
 python manage.py runserver
 python manage.py shell
 python manage.py startapp user
+python manage.py startapp shops
 pip install django-bootstrap3
 我是这节课禁言前最后一个发言的。
