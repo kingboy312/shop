@@ -82,7 +82,15 @@ DATABASES = {
         'PASSWORD': 'password'
     }
 }
-
+REDIS = {
+    'default': {
+        'HOST': '127.0.0.1',
+        'PORT': 6379,
+        'USER': '',
+        'PASSWORD': '',
+        'db': 0,
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
