@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load bootstrap3 %}
+<html lang="en">
+
+
+
+  <h2>Log in to your account.</h2>
+
+
+
+
+<form method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">log in</button>
+    {% endbuttons %}
+    <input type="hidden" name="next" value="/learninglog/"/>
+</form>
+
+</html>
