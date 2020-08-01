@@ -17,14 +17,14 @@ class Goods(models.Model):
     name = models.CharField(max_length=255)
     original_price = models.IntegerField()
     current_price  = models.IntegerField()
-    picture = models.CharField(max_length=255)
+    picture = models.FileField(upload_to="wed/static/images/goods")
     introduction = models.CharField(max_length=255)
-    views_count = models.IntegerField(verbose_name=0)
     is_sale  = models.BooleanField()
     is_new = models.BooleanField()
     supercat_id = models.ForeignKey(SuperCat,on_delete=models.CASCADE)
     subcat_id = models.ForeignKey(SubCat,on_delete=models.CASCADE)
     addtime = models.DateTimeField(auto_now_add=True)
+    views_count = models.IntegerField(verbose_name=0)
     def __str__(self):
         return self.name
 class Cart(models.Model):

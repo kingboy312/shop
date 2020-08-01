@@ -1,10 +1,40 @@
-{% extends 'app1/base.html' %}
+<!DOCTYPE html>
+<html >
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Register -5P Mall</title>
 
-{% block content %}
-    <form method="post" action="/users/register/">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button name="submit">register</button>
-        <input type="hidden" name="next" value="/learninglog/"/>
-    </form>
-{% endblock %}
+<link rel="stylesheet" href="/static/home/css/mr-01.css" type="text/css">
+
+</head>
+<body>
+	<!-- 主体内容 -->
+	<div id="mr-mainbody" class="container mr-mainbody">
+		<div class="row">
+			<div id="mr-content" class="mr-content col-xs-12">
+				<div class="login-wrap"
+					style="margin-bottom: 60px; margin-top: 50px">
+					<div style="max-width: 540px; margin: 0 auto;">
+						<a href="index.html" title="Click back to home page">
+							<img src="/static/home/images/51logo.png"></a>
+					</div>
+					<div class="login">
+						<div class="page-header" style="pause: 0px;">
+							<h1 class="login_h1">Registered members</h1>
+						</div>
+						<!-- 会员注册表单 -->
+                        <form method="post" action="/register/">
+                            {% csrf_token %}
+							{{form.as_p}}
+
+                            <button name="submit">register</button>
+                            <input type="hidden" name="next" value="/"/>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

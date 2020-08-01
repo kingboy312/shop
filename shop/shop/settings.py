@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+WEB_DIR = os.path.join(BASE_DIR, 'web')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -24,8 +24,6 @@ SECRET_KEY = 'lylfypl1ru#20dk^$(o5%nv-l4!l5u^70z*967pja%hn21=@!n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shops',
+    'bootstrap3',
+    'pure_pagination',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(WEB_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,3 +129,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(WEB_DIR, "static"),
+)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+BANK_REPO = '/home/hugo/bank_backup'
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+PAGINATION_SETTINGS = {
+     'PAGE_RANGE_DISPLAYED': 3,
+      'MARGIN_PAGES_DISPLAYED': 2,
+
+     'SHOW_FIRST_PAGE_WHEN_INVALID': True,
+ }

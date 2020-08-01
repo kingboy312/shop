@@ -1,21 +1,37 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 {% load bootstrap3 %}
-<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Login -5P mall</title>
+<link rel="stylesheet" href="/static/home/css/mr-01.css" type="text/css">
+</head>
+<body>
+	<div id="mr-mainbody" class="container mr-mainbody">
+		<div class="row">
+			<!-- 主体内容 -->
+			<div id="mr-content" class="mr-content col-xs-12">
+				<div class="login-wrap" style="margin-bottom: 60px; margin-top: 50px">
+					<div style="max-width: 540px; margin: 0 auto;">
+						<a href="/" title="点击返回首页"><img src="/static/home/images/51logo.png"></a>
+					</div>
+					<div class="login">
+						<div class="page-header" style="pause: 0px;"> <h1 class="login_h1">Member login</h1> </div>
 
-
-
-  <h2>Log in to your account.</h2>
-
-
-
-
-<form method="post" class="form">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    {% buttons %}
-      <button name="submit" class="btn btn-primary">log in</button>
-    {% endbuttons %}
-    <input type="hidden" name="next" value="/learninglog/"/>
-</form>
-
+                        <form method="post" class="form">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+                            {% buttons %}
+                                <button name="submit" class="btn btn-primary">log in</button>
+                            {% endbuttons %}
+                            <input type="hidden" name="next" value="/"/>
+                        </form>
+                    </div>
+				</div>
+			</div>
+			<!-- //主体内容 -->
+		</div>
+	</div>
+</body>
 </html>
